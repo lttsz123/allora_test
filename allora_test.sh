@@ -243,7 +243,9 @@ main() {
   read -p "请输入要运行的实例数量: " num_instances
 
   for ((i = 1; i <= num_instances; i++)); do
-    read -p "请输入实例 #${i} 的钱包助记词: " wallet_seed
+    wallet_seed=$(docker exec "nubit$i" /bin/bash -c "cat $HOME/nubit-node/mnemonic.txt")
+    echo "助记词为："
+    echo "$wallet_seed"
     setup_instance $i "$wallet_seed"
   done
 
