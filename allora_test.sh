@@ -244,8 +244,6 @@ main() {
 
   for ((i = 1; i <= num_instances; i++)); do
     wallet_seed=$(docker exec "nubit$i" /bin/bash -c "cat $HOME/nubit-node/mnemonic.txt")
-    echo "助记词为："
-    echo "$wallet_seed"
     setup_instance $i "$wallet_seed"
   done
 
