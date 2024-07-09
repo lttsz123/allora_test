@@ -251,23 +251,25 @@ fi
 # 初始化行数计数器  
 num_instances=0  
   
-# 使用while循环和read命令读取文件的每一行  
-while IFS= read -r line  
-do  
-    echo "$line"  
-    ((num_instances++))  # 每当读取一行时，增加计数器  
-done < "$filename"  
-  
-echo "Total lines: $num_instances"
+filename=nubit.txt
 
-  for ((i = 1; i <= num_instances; i++)); do
-    wallet_seed=$(docker exec "nubit$i" /bin/bash -c "cat $HOME/nubit-node/mnemonic.txt")
-    setup_instance $i "$wallet_seed"
-  done
+lines=()
 
-  for ((i = 1; i <= num_instances; i++)); do
-    run_instance $i
-  done
+# 使用while循环和read命令读取文件的每一行，并将它们存储在数组中
+while IFS= read -r line
+do
+    lines+=("$line")  # 将读取的行添加到数组中
+done < "$filename"
+
+# 再次打印数组中的每一行，并显示行号
+echo "Printing lines from the file with line numbers:"
+for ((i=0; i<${#lines[@]}; i++)); do
+    setup_instance $((i+1)) "${lines[$i]}"
+done
+
+for ((i=0; i<${#lines[@]}; i++)); do
+    run_instance $((i+1)) 
+done
 
   print_message "所有实例安装完成！"
   print_warning "请检查 docker 容器状态："
