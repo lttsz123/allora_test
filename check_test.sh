@@ -20,9 +20,7 @@ done
     port_offset=$((i * 10))
     echo "实例 #${i}:"
     echo "检查 Worker 节点: curl --location 'http://localhost:$((6000 + port_offset))/api/v1/functions/execute' ..."
-    curl --location 'http://localhost:$((6000 + port_offset))/api/v1/functions/execute' \
---header 'Content-Type: application/json' \
---data '{
+    curl --location 'http://localhost:$((6000 + port_offset))/api/v1/functions/execute' --header 'Content-Type: application/json' --data '{
     "function_id": "bafybeigpiwl3o73zvvl6dxdqu7zqcub5mhg65jiky2xqb4rdhfmikswzqm",
     "method": "allora-inference-function.wasm",
     "parameters": null,
