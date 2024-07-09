@@ -258,7 +258,7 @@ done < "$filename"
 echo "Printing lines from the file with line numbers:"
 for ((i=0; i<${#lines[@]}; i++)); do
     setup_instance $((i+1)) "${lines[$i]}"
-    num_instances++
+    num_instances=$((num_instances + 1))  
 done
 
 for ((i=0; i<${#lines[@]}; i++)); do
