@@ -49,4 +49,4 @@ curl --location "http://localhost:$port/api/v1/functions/execute" --header 'Cont
     curl http://localhost:$((8000 + port_offset))/inference/ETH
     echo ""
   done
-}
+
