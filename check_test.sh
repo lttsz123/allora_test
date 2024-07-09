@@ -19,26 +19,30 @@ done
   for ((i = 1; i <= num_instances; i++)); do
     port_offset=$((i * 10))
     echo "实例 #${i}:"
-    echo "检查 Worker 节点: curl --location 'http://localhost:$((6000 + port_offset))/api/v1/functions/execute' ..."
-    curl --location 'http://localhost:$((6000 + port_offset))/api/v1/functions/execute' --header 'Content-Type: application/json' --data '{
-    "function_id": "bafybeigpiwl3o73zvvl6dxdqu7zqcub5mhg65jiky2xqb4rdhfmikswzqm",
-    "method": "allora-inference-function.wasm",
-    "parameters": null,
-    "topic": "1",
-    "config": {
-        "env_vars": [
-            {
-                "name": "BLS_REQUEST_PATH",
-                "value": "/api"
-            },
-            {
-                "name": "ALLORA_ARG_PARAMS",
-                "value": "ETH"
-            }
-        ],
-        "number_of_nodes": -1,
-        "timeout": 10
-    }
+    echo "检查 Worker 节点: "
+    # 计算端口号  
+port=$((6000 + port_offset))  
+  
+# 使用curl命令  
+curl --location "http://localhost:$port/api/v1/functions/execute" --header 'Content-Type: application/json' --data '{  
+    "function_id": "bafybeigpiwl3o73zvvl6dxdqu7zqcub5mhg65jiky2xqb4rdhfmikswzqm",  
+    "method": "allora-inference-function.wasm",  
+    "parameters": null,  
+    "topic": "1",  
+    "config": {  
+        "env_vars": [  
+            {  
+                "name": "BLS_REQUEST_PATH",  
+                "value": "/api"  
+            },  
+            {  
+                "name": "ALLORA_ARG_PARAMS",  
+                "value": "ETH"  
+            }  
+        ],  
+        "number_of_nodes": -1,  
+        "timeout": 10  
+    }  
 }'
     echo "检查 Updater 节点: curl http://localhost:$((8000 + port_offset))/update"
     curl http://localhost:$((8000 + port_offset))/update
