@@ -14,8 +14,6 @@ done < "$filename"
 for ((i=0; i<${#lines[@]}; i++)); do
     num_instances=$((num_instances + 1))  
 done
-
-  print_message "你可以使用以下命令检查各个节点的状态："
   for ((i = 1; i <= num_instances; i++)); do
     port_offset=$((i * 10))
     echo "实例 #${i}:"
