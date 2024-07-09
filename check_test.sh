@@ -44,6 +44,7 @@ curl --location "http://localhost:$port/api/v1/functions/execute" --header 'Cont
 }'
     echo "检查 Updater 节点: curl http://localhost:$((8000 + port_offset))/update"
     curl http://localhost:$((8000 + port_offset))/update
+    echo ""
     echo "检查 Inference 节点: curl http://localhost:$((8000 + port_offset))/inference/ETH"
     curl http://localhost:$((8000 + port_offset))/inference/ETH
     echo ""
