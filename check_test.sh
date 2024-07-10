@@ -21,6 +21,7 @@ done
     # 计算端口号  
 port=$((6000 + port_offset))  
 network_height=$(curl -s -X 'GET' 'https://allora-rpc.edgenet.allora.network/abci_info' -H 'accept: application/json' | jq -r .result.response.last_block_height)
+echo '$network_height'
 # 使用curl命令  
 curl --location "http://localhost:$port/api/v1/functions/execute" --header 'Content-Type: application/json' --data '{  
     "function_id": "bafybeigpiwl3o73zvvl6dxdqu7zqcub5mhg65jiky2xqb4rdhfmikswzqm",  
@@ -39,7 +40,7 @@ curl --location "http://localhost:$port/api/v1/functions/execute" --header 'Cont
             },
              {
                 "name": "ALLORA_BLOCK_HEIGHT_CURRENT",
-                "value": "'"${network_height}"'"
+                "value": "$network_height"
             }
         ],  
         "number_of_nodes": -1,  
