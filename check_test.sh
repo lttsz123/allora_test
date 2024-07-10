@@ -21,7 +21,7 @@ done
     # 计算端口号  
 port=$((6000 + port_offset))  
 network_height=$(curl -s -X 'GET' 'https://allora-rpc.edgenet.allora.network/abci_info' -H 'accept: application/json' | jq -r .result.response.last_block_height)
-echo '${network_height}'
+echo ${network_height}
 echo "检查 Worker 节点: "
 # 使用curl命令  
 curl --location "http://localhost:$port/api/v1/functions/execute" --header 'Content-Type: application/json' --data "{  
