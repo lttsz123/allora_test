@@ -17,11 +17,11 @@ done
   for ((i = 1; i <= num_instances; i++)); do
     port_offset=$((i * 10))
     echo "实例 #${i}:"
-    echo "高度: "
+    #echo "高度: "
     # 计算端口号  
 port=$((6000 + port_offset))  
 network_height=$(curl -s -X 'GET' 'https://allora-rpc.edgenet.allora.network/abci_info' -H 'accept: application/json' | jq -r .result.response.last_block_height)
-echo ${network_height}
+#echo ${network_height}
 echo "检查 Worker 节点: "
 # 使用curl命令  
 curl --location "http://localhost:$port/api/v1/functions/execute" --header 'Content-Type: application/json' --data "{  
@@ -47,12 +47,12 @@ curl --location "http://localhost:$port/api/v1/functions/execute" --header 'Cont
         \"number_of_nodes\": -1,  
         \"timeout\": 10  
     }  
-}"  | jq
-    echo "检查 Updater 节点: curl http://localhost:$((8000 + port_offset))/update"
-    curl http://localhost:$((8000 + port_offset))/update
-    echo ""
-    echo "检查 Inference 节点: curl http://localhost:$((8000 + port_offset))/inference/ETH"
-    curl http://localhost:$((8000 + port_offset))/inference/ETH
-    echo ""
+}"  
+    #echo "检查 Updater 节点: curl http://localhost:$((8000 + port_offset))/update"
+   # curl http://localhost:$((8000 + port_offset))/update
+    #echo ""
+    #echo "检查 Inference 节点: curl http://localhost:$((8000 + port_offset))/inference/ETH"
+    #curl http://localhost:$((8000 + port_offset))/inference/ETH
+    #echo ""
   done
 
