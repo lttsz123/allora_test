@@ -22,7 +22,7 @@ done
 port=$((6000 + port_offset))  
 network_height=$(curl -s -X 'GET' 'https://allora-rpc.edgenet.allora.network/abci_info' -H 'accept: application/json' | jq -r .result.response.last_block_height)
 #echo ${network_height}
-echo "检查 Worker 节点: "
+#echo "检查 Worker 节点: "
 # 使用curl命令  
 curl --location "http://localhost:$port/api/v1/functions/execute" --header 'Content-Type: application/json' --data "{  
     \"function_id\": \"bafybeigpiwl3o73zvvl6dxdqu7zqcub5mhg65jiky2xqb4rdhfmikswzqm\",  
@@ -47,7 +47,7 @@ curl --location "http://localhost:$port/api/v1/functions/execute" --header 'Cont
         \"number_of_nodes\": -1,  
         \"timeout\": 10  
     }  
-}"  
+}"  | jq | grep code
     #echo "检查 Updater 节点: curl http://localhost:$((8000 + port_offset))/update"
    # curl http://localhost:$((8000 + port_offset))/update
     #echo ""
