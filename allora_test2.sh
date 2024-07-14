@@ -62,6 +62,9 @@ create_docker_compose() {
   local instance_number=$1
   local wallet_seed=$2
   local port_offset=$((instance_number * 10))
+  if [ $port_offset -eq 80 ]; then  
+    port_offset=81  
+  fi  
   local subnet="172.22.${instance_number}.0/24"
   local head_id=$(cat /root/allora-instances/instance-${instance_number}/head-data/keys/identity)
 
