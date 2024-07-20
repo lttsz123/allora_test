@@ -270,7 +270,6 @@ main() {
   print_message "你可以使用以下命令检查各个节点的状态："
   for ((i = 1; i <= num_instances; i++)); do
     port_offset=$((i * 10))
-    if p
     echo "实例 #${i}:"
     echo "检查 Worker 节点: curl --location 'http://localhost:$((6000 + port_offset))/api/v1/functions/execute' ..."
     echo "检查 Updater 节点: curl http://localhost:$((8000 + port_offset))/update"
