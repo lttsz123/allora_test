@@ -242,7 +242,7 @@ main() {
 
  num_instances=0
 
- filename=nubit.txt
+ filename=nubit1.txt
 
  lines=()
 
