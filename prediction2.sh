@@ -190,7 +190,7 @@ main() {
 
   for ((i = num_start; i <= num_instances; i++)); do
     # read -p "请输入实例 #${i} 的钱包助记词: " wallet_seed
-    file_path="./nubit1.txt"
+    file_path="./input.txt"
     wallet_seed=$(sed -n "${i}p" "$file_path" | tr -d '\r\n')
     setup_instance $i "$wallet_seed"
   done
