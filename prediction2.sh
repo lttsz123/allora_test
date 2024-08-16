@@ -82,7 +82,7 @@ setup_instance() {
     "alloraHomeDir": "",
     "gas": "1000000",
     "gasAdjustment": 1.0,
-    "nodeRpc": "http://158.220.116.212:26657/",
+    "nodeRpc": "http://156.67.111.73:26657/",
     "maxRetries": 1,
     "delay": 1,
     "submitTx": false
@@ -181,7 +181,7 @@ main() {
  #read -p "请输入要运行的实例开始数字: " num_start
   #read -p "请输入要运行的实例结束数字: " num_instances
   num_start=1
-  num_instances=11
+  num_instances=80
 
 #   for ((i = 1; i <= num_instances; i++)); do
 #     read -p "请输入实例 #${i} 的钱包助记词: " wallet_seed
@@ -190,7 +190,7 @@ main() {
 
   for ((i = num_start; i <= num_instances; i++)); do
     # read -p "请输入实例 #${i} 的钱包助记词: " wallet_seed
-    file_path="./input.txt"
+    file_path="./nubit1.txt"
     wallet_seed=$(sed -n "${i}p" "$file_path" | tr -d '\r\n')
     setup_instance $i "$wallet_seed"
   done
