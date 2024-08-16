@@ -82,7 +82,7 @@ setup_instance() {
     "alloraHomeDir": "",
     "gas": "1000000",
     "gasAdjustment": 1.0,
-    "nodeRpc": "http://157.173.207.241:26657/",
+    "nodeRpc": "http://127.0.0.1:26667/",
     "maxRetries": 1,
     "delay": 1,
     "submitTx": false
