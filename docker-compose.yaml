@@ -14,6 +14,6 @@ services:
       - ./data_validator:/data
       - ./scripts/:/scripts
     ports:
-      - "26656-26657:26656-26657"
+      - "26666-26667:26666-26667"
     user: "0:0"
     entrypoint: /scripts/l1_node.sh
