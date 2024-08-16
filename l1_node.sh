@@ -13,7 +13,7 @@ MONIKER="${MONIKER:-$(hostname)}"
 KEYRING_BACKEND=test                              #! Use test for simplicity, you should decide which backend to use !!!
 GENESIS_FILE="${APP_HOME}/config/genesis.json"
 DENOM="uallo"
-RPC_PORT="${RPC_PORT:-26657}"
+RPC_PORT="26667"
 
 # uncomment this block if you want to restore from a snapshot
 # SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
