@@ -80,7 +80,7 @@ setup_instance() {
     "addressKeyName": "$instance_number",
     "addressRestoreMnemonic": "$wallet_seed",
     "alloraHomeDir": "",
-    "gas": "1000000",
+    "gas": "9000000",
     "gasAdjustment": 1.0,
     "nodeRpc": "http://127.0.0.1:26667/",
     "maxRetries": 1,
